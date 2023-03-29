@@ -20,8 +20,8 @@ def factorial(num):
         return fact
 
 if len(sys.argv) < 2:
-    input_str = input("Por favor, ingrese el rango de números en el formato numero inicial hasta numero final: ")
-    inicio, final = map(int, input_str.split('-'))
+    input_ = input("Por favor, ingrese el rango de números en el formato inicio-final: ")
+    inicio, final = map(int, input_.split('-'))
 else:
     inicio, final = map(int, sys.argv[1].split('-'))
 
