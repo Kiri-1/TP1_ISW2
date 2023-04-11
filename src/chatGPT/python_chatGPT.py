@@ -6,9 +6,10 @@
 #como respuesta. El contenido de la consulta debe agregársele “You:”
 #antes de imprimirlo y de enviarlo. La respuesta de chatGPT deberá
 #agregársele “chatGPT: “antes de imprimirse.
+##https://platform.openai.com/docs/api-reference //documentacion 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 while True:
     #Se llama prompt al carácter o conjunto de caracteres que se muestran en una línea de comandos para indicar que está a la espera de órdenes.
@@ -35,4 +36,4 @@ while True:
                                           presence_penalty=PRES_PENALTY,
                                           temperature=TEMPERATURE,
                                           stop=STOP)
-    print(completion.choices[0].text)
+    print(completion.choices[0].text) #imprimer el primer valor de la respuesta
