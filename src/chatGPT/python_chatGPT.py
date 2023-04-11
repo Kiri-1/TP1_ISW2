@@ -27,6 +27,9 @@ while True:
     if prompt == "exit" :
         break
 
+    # Agregamos "You:" al inicio de la consulta
+    prompt = "You: " + prompt
+
     completion = openai.Completion.create(engine=MODEL_ENGINE,
                                           prompt=prompt,
                                           max_tokens=MAX_TOKENS,
@@ -36,4 +39,7 @@ while True:
                                           presence_penalty=PRES_PENALTY,
                                           temperature=TEMPERATURE,
                                           stop=STOP)
-    print(completion.choices[0].text) #imprimer el primer valor de la respuesta
+    # Agregamos "chatGPT: " al inicio de la respuesta
+    response = "chatGPT: " + completion.choices[0].text
+
+    print(response) #imprime la respuesta
