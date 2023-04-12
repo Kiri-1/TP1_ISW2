@@ -5,13 +5,24 @@
 
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 while True:
     try:
         # Se llama prompt al carácter o conjunto de caracteres que se muestran en una línea de comandos para indicar que está a la espera de órdenes.
         print ('Ingrese una pregunta a chatGPT -- exit para finalizar')
-        prompt = input("\nYou: ")
+        prompt = input("\nYou: ") # El sistema operativo trae a travez del imput permitir la funcionalidad de "cursor Up".
+
+        if prompt == "":
+            continue
+        # Se detiene el programa cuando ingresa un exit al prompt.
+        # .lower() Convierte una cadena de caracteres a minúsculas.
+        if prompt.lower() == "exit" :
+            print("Hasta pronto!")
+            break
+
+        # Agregamos "You:" al inicio de la consulta.
+        prompt = "You: " + prompt
 
         TOP_P=1
         FREQ_PENALTY=0
@@ -21,18 +32,6 @@ while True:
         TEMPERATURE=0.75
         NMAX=1
         MODEL_ENGINE = "text-davinci-003"
-
-        if prompt == "":
-            continue
-
-        # Se detiene el programa cuando ingresa un exit al prompt.
-        # .lower() Convierte una cadena de caracteres a minúsculas.
-        if prompt.lower() == "exit" :
-            print("Hasta pronto!")
-            break
-
-        # Agregamos "You:" al inicio de la consulta.
-        prompt = "You: " + prompt
 
         completion = openai.Completion.create(engine=MODEL_ENGINE,
                                           prompt=prompt,
@@ -46,12 +45,10 @@ while True:
     
         # Agregamos "chatGPT: " al inicio de la respuesta.
         response = "chatGPT: " + completion.choices[0].text
-
         print(response) # Imprime la respuesta.
 
     # Agregue al programa anterior estructuras Try:/Except: para gestionar problemas en la ejecución, coloque un nido para la aceptación de consulta desde el usuario, otro para su tratamiento y un tercero para la invocación.
     
-
     # Excepciones para manejar errores relacionados con la autenticación.
     except openai.error.AuthenticationError:
         print("Ha ocurrido un error de autenticación. Por favor, revisa tu API key.")
@@ -66,4 +63,3 @@ while True:
     except Exception as e:
         print(f"Ha ocurrido un error: {e}")
         break
-
