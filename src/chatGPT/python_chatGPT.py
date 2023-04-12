@@ -1,19 +1,16 @@
-#Escriba un programa en lenguaje Python que basándose en el esqueleto
-#previamente proporcionado acepte una consulta del usuario, verifique si
-#la misma tiene texto, imprima su contenido, invoque el API de chatGPT
-#con esa consulta e imprima en pantalla el resultado que se obtenga
-#Ingeniería de Software II
-#como respuesta. El contenido de la consulta debe agregársele “You:”
-#antes de imprimirlo y de enviarlo. La respuesta de chatGPT deberá
-#agregársele “chatGPT: “antes de imprimirse.
-##https://platform.openai.com/docs/api-reference //documentacion 
+#Escriba un programa en lenguaje Python que basándose en el esqueleto previamente proporcionado acepte una consulta del usuario, verifique si la misma tiene texto, imprima su contenido, invoque el API de chatGPT con esa consulta e imprima en pantalla el resultado que se obtenga como respuesta. El contenido de la consulta debe agregársele “You:” antes de imprimirlo y de enviarlo. La respuesta de chatGPT deberá agregársele “chatGPT: “antes de imprimirse.
+
+#https://platform.openai.com/docs/api-reference //documentacion 
+
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 while True:
     #Se llama prompt al carácter o conjunto de caracteres que se muestran en una línea de comandos para indicar que está a la espera de órdenes.
-    prompt = input("\nIntroduce una pregunta: ")
+    print ('Ingrese una pregunta a chatGPT -- exit para finalizar')
+    prompt = input("\nYou: ")
+
     TOP_P=1
     FREQ_PENALTY=0
     PRES_PENALTY=0
@@ -23,7 +20,7 @@ while True:
     NMAX=1
     MODEL_ENGINE = "text-davinci-003"
 
-    #se detiene el programa cuando ingresa un exit al prompt
+    # Se detiene el programa cuando ingresa un exit al prompt
     if prompt == "exit" :
         break
 
@@ -39,7 +36,8 @@ while True:
                                           presence_penalty=PRES_PENALTY,
                                           temperature=TEMPERATURE,
                                           stop=STOP)
+    
     # Agregamos "chatGPT: " al inicio de la respuesta
     response = "chatGPT: " + completion.choices[0].text
 
-    print(response) #imprime la respuesta
+    print(response) # Imprime la respuesta
