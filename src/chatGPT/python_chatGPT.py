@@ -1,6 +1,3 @@
-
-# Escriba un programa en lenguaje Python que basándose en el esqueleto previamente proporcionado acepte una consulta del usuario, verifique si la misma tiene texto, imprima su contenido, invoque el API de chatGPT con esa consulta e imprima en pantalla el resultado que se obtenga como respuesta. El contenido de la consulta debe agregársele “You:” antes de imprimirlo y de enviarlo. La respuesta de chatGPT deberá agregársele “chatGPT: “antes de imprimirse.
-
 # https://platform.openai.com/docs/api-reference //documentacion. 
 
 import openai
@@ -40,7 +37,7 @@ while args.convers:
     if not user_input:
         continue
     
-    # Salir del modo conversación al ingresar "salir".
+    # Salir del modo conversación al ingresar "salir" y corta el programa
     if user_input == "salir":
         break
     
@@ -70,20 +67,18 @@ while args.convers:
         
         # Imprimir la respuesta de chatGPT.
         print_message(response, False)
-
-    # Agregue al programa anterior estructuras Try:/Except: para gestionar problemas en la ejecución, coloque un nido para la aceptación de consulta desde el usuario, otro para su tratamiento y un tercero para la invocación.
     
-    # Excepciones para manejar errores relacionados con la autenticación.
+    # Excepciones para manejar errores relacionados con la autenticación e imprime y corta el programa.
     except openai.error.AuthenticationError:
         print("Ha ocurrido un error de autenticación. Por favor, revisa tu API key.")
         break
 
-    # En la llamada a la API y otros errores genéricos.    
+    # En la llamada a la API y otros errores genéricos e imprime y corta el programa.
     except openai.error.APIError as e:
         print(f"Ha ocurrido un error al llamar a la API: {e}")
         break
 
-    # Condición para ignorar las consultas vacías.
+    # Condición para ignorar las consultas vacías e imprime y corta el programa.
     except Exception as e:
         print(f"Ha ocurrido un error: {e}")
         break

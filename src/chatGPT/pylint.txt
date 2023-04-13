@@ -1,0 +1,22 @@
+PS C:\Users\crist\OneDrive\Documentos\TP1SW2\src\chatGPT> pylint python_chatGPT.py     
+************* Module python_chatGPT
+python_chatGPT.py:1:65: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:35:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:39:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:43:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:46:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:49:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:63:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:67:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:70:0: C0303: Trailing whitespace (trailing-whitespace)
+python_chatGPT.py:71:0: C0301: Line too long (103/100) (line-too-long)
+python_chatGPT.py:84:0: C0304: Final newline missing (missing-final-newline)
+python_chatGPT.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+python_chatGPT.py:1:0: C0103: Module name "python_chatGPT" doesn't conform to snake_case naming style (invalid-name)
+python_chatGPT.py:27:0: C0116: Missing function or method docstring (missing-function-docstring)
+python_chatGPT.py:48:4: C0103: Constant name "prompt" doesn't conform to UPPER_CASE naming style (invalid-name)
+python_chatGPT.py:82:11: W0718: Catching too general exception Exception (broad-exception-caught)
+python_chatGPT.py:4:0: C0411: standard import "import argparse" should be placed before "import openai" (wrong-import-order)
+
+-----------------------------------
+Your code has been rated at 5.85/10
