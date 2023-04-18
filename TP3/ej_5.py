@@ -105,4 +105,3 @@ def main():
     airplaneBuilder = AirplaneBuilder()
     director = Director()
     director.setBuilder(airplaneBuilder)
-
