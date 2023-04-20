@@ -104,8 +104,7 @@ print('Puedo hacerlo masivamente con 10 NPCs: ', dt)
 shopkeeper_template = Shopkeeper(180, 22, 5, 8)
 warrior_template = Warrior(185, 22, 4, 21)
 mage_template = Mage(172, 65, 8, 15)
-for i in range(20):
-    time.sleep(0.1)
+for i in range(3):
     shopkeeper_clone = shopkeeper_template.clone()
     warrior_clone = warrior_template.clone()
     mage_clone = mage_template.clone()
