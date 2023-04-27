@@ -1,9 +1,20 @@
 import os
+from abc import ABC, abstractmethod
+
+class Ping(ABC):
+    """
+    The Ping interface declares common operations for both RealPing and
+    the ProxyPing.
+    """
+
+    @abstractmethod
+    def execute(self, address: str) -> None:
+        pass
 
 class Ping:
     def __init__(self):
         pass
-    
+
     def execute(self, ip_address):
         if ip_address.startswith("192."):
             for i in range(10):
