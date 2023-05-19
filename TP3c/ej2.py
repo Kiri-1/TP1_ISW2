@@ -26,6 +26,7 @@ class StringIterator:
 
     def set_reverse(self, reverse):
         self.reverse = reverse
+        self.index -= 1
 
     def has_next(self):
         if self.reverse:
